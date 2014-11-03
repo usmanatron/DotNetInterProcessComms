@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>654a7eb8-7fcd-4bc3-8605-591b2c7ebf2d</ProjectGuid>
+    <ProjectGuid>{011A40B9-818E-4095-A4D0-A1737768973D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MSMQ.Client</RootNamespace>

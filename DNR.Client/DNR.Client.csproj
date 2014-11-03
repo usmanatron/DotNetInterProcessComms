@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>fc070455-23ca-4899-8936-1c40595f6e1b</ProjectGuid>
+    <ProjectGuid>{C4D54E39-E593-49F5-A38C-32144BB28C1B}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DNR.Client</RootNamespace>
