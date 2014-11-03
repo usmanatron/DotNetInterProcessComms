@@ -1,15 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MSMQ.Client
 {
+  /// <summary>
+  /// Sends the message!
+  /// </summary>
   class Program
   {
     static void Main(string[] args)
     {
+      // Assume all arguments passed in are just one big message
+      var message = string.Join(" ", args);
+
+      Console.WriteLine("Sending message: " + message);
+
+      new MessagingClient().SendMessage(message);
+
+      Console.WriteLine("Message Sent!");
+      Console.WriteLine("Press any key to exit");
+      Console.ReadLine();
     }
   }
 }
