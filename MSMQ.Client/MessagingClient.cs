@@ -13,7 +13,7 @@ namespace MSMQ.Client
   {
     public void SendMessage(string messageSummary)
     {
-      var message = new MSMQ.Common.Message { Server = Dns.GetHostName(), Summary = messageSummary };
+      var message = new MSMQ.Common.Message { Timestamp = DateTime.Now, Server = Dns.GetHostName(), Summary = messageSummary };
       var messageQueue = new MessageQueue(CommunicationCommon.MessageQueueName);
       messageQueue.Send(message);
     }

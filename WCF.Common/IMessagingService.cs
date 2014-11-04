@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 
 namespace WCF.Common
 {
@@ -11,6 +12,6 @@ namespace WCF.Common
   public interface IMessagingService
   {
     [OperationContract]
-    void SendMessage(string sender, string message);
+    void SendMessage(DateTime timestamp, string sender, string message);
   }
 }

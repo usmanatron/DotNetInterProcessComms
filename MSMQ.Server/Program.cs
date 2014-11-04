@@ -23,7 +23,7 @@ namespace MSMQ.Server
         var message = parser.GetNextMessage();
         if (message != null)
         {
-          Console.WriteLine("Message received from " + message.Server + " at " + DateTime.Now);
+          Console.WriteLine("Message received from " + message.Server + " at " + message.Timestamp);
           Console.WriteLine("Message: " + message.Summary);
         }
       }

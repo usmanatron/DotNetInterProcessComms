@@ -1,4 +1,6 @@
-﻿namespace DNR.Common
+﻿using System;
+
+namespace DNR.Common
 {
   /// <summary>
   /// This defines what methods can be passed from Client to Server.
@@ -7,6 +9,6 @@
   /// </summary>
   public interface IMessagingService
   {
-    void SendMessage(string sender, string message);
+    void SendMessage(DateTime timestamp, string sender, string message);
   }
 }

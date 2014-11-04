@@ -20,7 +20,7 @@ namespace WCF.Client
 
     public void SendMessage(string message)
     {
-      clientFactory.CreateChannel().SendMessage(System.Net.Dns.GetHostName(), message);
+      clientFactory.CreateChannel().SendMessage(DateTime.Now, System.Net.Dns.GetHostName(), message);
     }
   }
 }

@@ -29,7 +29,7 @@ namespace DNR.Client
     {
       Type requiredType = typeof(IMessagingService);
       var remoteObject = (IMessagingService)Activator.GetObject(requiredType, CommunicationCommon.CommunicationUri);
-      remoteObject.SendMessage(Dns.GetHostName(), message); 
+      remoteObject.SendMessage(DateTime.Now, Dns.GetHostName(), message); 
     }
   }
 }

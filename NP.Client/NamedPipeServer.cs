@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.IO.Pipes;
 using NP.Common;
 using System.Net;
@@ -17,7 +18,7 @@ namespace NP.Client
   {
     public void WriteToPipe(string messageSummary)
     {
-      var message = new Message { Server = Dns.GetHostName(), Summary = messageSummary };
+      var message = new Message { Timestamp = DateTime.Now, Server = Dns.GetHostName(), Summary = messageSummary };
 
       var namedPipeServer = new NamedPipeServerStream(CommunicationCommon.NamedPipeInstance, PipeDirection.InOut);
       namedPipeServer.WaitForConnection();
