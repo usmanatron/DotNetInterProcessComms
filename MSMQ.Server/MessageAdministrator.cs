@@ -18,11 +18,10 @@ namespace MSMQ.Server
 
     private void RecreateQueue()
     {
-      if (MessageQueue.Exists(CommunicationCommon.MessageQueueName))
+      if (!MessageQueue.Exists(CommunicationCommon.MessageQueueName))
       {
-        MessageQueue.Delete(CommunicationCommon.MessageQueueName);
+        MessageQueue.Create(CommunicationCommon.MessageQueueName);
       }
-      MessageQueue.Create(CommunicationCommon.MessageQueueName);
     }
     
     public System.Messaging.Message Read()
