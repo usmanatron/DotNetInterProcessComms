@@ -28,7 +28,7 @@ namespace DNR.Client
     private static void SendMessage(string message)
     {
       Type requiredType = typeof(IMessagingService);
-      var remoteObject = (IMessagingService)Activator.GetObject(requiredType, "tcp://localhost:9998/MessagingService");
+      var remoteObject = (IMessagingService)Activator.GetObject(requiredType, CommunicationCommon.CommunicationUri);
       remoteObject.SendMessage(Dns.GetHostName(), message); 
     }
   }
