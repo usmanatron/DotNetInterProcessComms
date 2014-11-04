@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -11,11 +12,19 @@ namespace WCF.Server
   /// </summary>
   class Program
   {
-    private static MessagingServer server;
-
     static void Main(string[] args)
     {
-      server = new MessagingServer();
+      var useMessageQueues = args.FirstOrDefault() == "msmq";
+
+      if (useMessageQueues)
+      {
+        var server = new MsmqMessagingServer();
+      }
+      else
+      {
+        var server = new HttpMessagingServer();
+      }
+      
       Console.WriteLine("Service listening...");
 
       while(true)

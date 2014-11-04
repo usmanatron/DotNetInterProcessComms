@@ -11,7 +11,7 @@ namespace WCF.Common
   [ServiceContract]
   public interface IMessagingService
   {
-    [OperationContract]
+    [OperationContract(IsOneWay=true)]
     void SendMessage(DateTime timestamp, string sender, string message);
   }
 }

@@ -11,21 +11,28 @@ namespace WCF.Server
   /// of MessagingService is passed into the host, which wires up the 
   /// request to a concrete implementation.
   /// </summary>
-  public class MessagingServer : IDisposable
+  public abstract class MessagingServer : IDisposable
   {
-    private ServiceHost host;
+    protected ServiceHost host;
 
     public MessagingServer()
     {
-      var service = new MessagingService();
-      var address = CommunicationCommon.GetServiceAddress;
+      SetupDependencies();
 
+      var service = new MessagingService();
+      var address = GetAddress();
+      
       host = new ServiceHost(service.GetType(), new Uri(address));
-      host.Description.Behaviors.Add(new ServiceMetadataBehavior { HttpGetEnabled = true });
-      host.AddServiceEndpoint(typeof(IMessagingService), new BasicHttpBinding(), "");
+      AddServiceEndpoint();
       
       host.Open();
     }
+
+    protected abstract void SetupDependencies();
+
+    protected abstract string GetAddress();
+
+    protected abstract void AddServiceEndpoint();
 
     public void Dispose()
     {

@@ -8,15 +8,16 @@ namespace WCF.Client
   /// Handles the actual communication.
   /// The ChannelFactory object is used to do the actual communication.  
   /// </summary>
-  public class MessagingClient
+  public abstract class MessagingClient
   {
-    private ChannelFactory<IMessagingService> clientFactory;
+    protected ChannelFactory<IMessagingService> clientFactory;
 
     public MessagingClient() 
     {
-      var address = new EndpointAddress(CommunicationCommon.GetServiceAddress);
-      clientFactory = new ChannelFactory<IMessagingService>(new BasicHttpBinding(), address);
+      SetupFactory();
     }
+
+    protected abstract void SetupFactory();
 
     public void SendMessage(string message)
     {

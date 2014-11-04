@@ -14,11 +14,27 @@
   /// </remarks>
   public static class CommunicationCommon
   {
-    public static string GetServiceAddress
+    public static string HttpServiceEndpoint
     {
       get
       {
         return @"http://localhost/MessagingService";
+      }
+    }
+
+    public static string MsmqServiceEndpoint
+    {
+      get
+      {
+        return @"net.msmq://localhost/private/WCFMessageService";
+      }
+    }
+
+    public static string MsmqQueueName
+    {
+      get
+      {
+        return @".\Private$\WCFMessageService";
       }
     }
   }
